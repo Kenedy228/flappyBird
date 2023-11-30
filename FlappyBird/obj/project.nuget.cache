@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "UYqyWYGijvRYNW3jx3dfHlb78wL3WuMwj3viZniM9wt2IY5xguYdeR/hSbpXXs/xQ40eMjEo03ltvCYr12gplw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zhura\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk\\4.8.1\\opentk.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.audio.openal\\4.8.1\\opentk.audio.openal.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.compute\\4.8.1\\opentk.compute.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.core\\4.8.1\\opentk.core.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.graphics\\4.8.1\\opentk.graphics.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.input\\4.8.1\\opentk.input.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.mathematics\\4.8.1\\opentk.mathematics.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.redist.glfw\\3.3.8.39\\opentk.redist.glfw.3.3.8.39.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.common\\4.8.1\\opentk.windowing.common.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.desktop\\4.8.1\\opentk.windowing.desktop.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.8.1\\opentk.windowing.graphicslibraryframework.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\system.drawing.common\\8.0.0\\system.drawing.common.8.0.0.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
