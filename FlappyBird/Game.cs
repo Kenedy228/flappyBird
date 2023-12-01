@@ -5,12 +5,13 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using System.Runtime.ConstrainedExecution;
+using System.Diagnostics;
 
 namespace FlappyBird
 {
     class Game : GameWindow
     {
-        int backgroundId, scoreId, playButtonId, 
+        int backgroundId, scoreId, playButtonId,
             settingsButtonId, exitButtonId, backId,
             menuId, restartId;
 
@@ -19,7 +20,7 @@ namespace FlappyBird
         List<int> birdColors = new List<int>();
         List<int> pipeColors = new List<int>();
 
-        
+
         Bird bird = new Bird();
         Score score = new Score();
         List<Pipe> pipes = new List<Pipe>{
@@ -30,6 +31,10 @@ namespace FlappyBird
         Menu menu = new Menu();
 
         Vector2 cursorPosition = new Vector2();
+
+        double targetFPS = 30.0;
+        Stopwatch stopwatch = new Stopwatch();
+        double elapsedTime = 0.0;
 
         public Game(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeSettings)
             : base(gameWindowSettings, nativeSettings)
@@ -94,7 +99,7 @@ namespace FlappyBird
             base.OnMouseMove(e);
 
             cursorPosition.X = 2 * e.Position.X / ClientSize.X - 1.0f;
-            cursorPosition.Y = - (2 * e.Position.Y / ClientSize.Y - 1.0f);
+            cursorPosition.Y = -(2 * e.Position.Y / ClientSize.Y - 1.0f);
         }
 
         protected override void OnLoad()
@@ -104,6 +109,8 @@ namespace FlappyBird
             GL.ClearColor(0, 0, 0, 0);
 
             GL.Enable(EnableCap.Texture2D);
+
+            stopwatch.Start();
 
         }
 
@@ -132,6 +139,21 @@ namespace FlappyBird
         {
             base.OnRenderFrame(args);
 
+            double deltaTime = stopwatch.Elapsed.TotalMilliseconds;
+            elapsedTime += deltaTime;
+
+            if (elapsedTime >= 1.0 / targetFPS)
+            {
+                Render();
+                SwapBuffers();
+                elapsedTime = 0;
+            }
+
+            Thread.Sleep(1);
+        }
+
+        public void Render()
+        {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             background.DrawBackground(backgroundId);
@@ -191,7 +213,7 @@ namespace FlappyBird
                     break;
             }
 
-            SwapBuffers();
+            GL.Flush();
         }
 
         protected void Clear()

@@ -15,7 +15,6 @@ namespace FlappyBird
                 Size = (800, 600),
                 Flags = ContextFlags.Default,
                 Profile = ContextProfile.Compatability,
-                Vsync = VSyncMode.On,
             };
 
             Game game = new Game(gSettings, nSettings);
