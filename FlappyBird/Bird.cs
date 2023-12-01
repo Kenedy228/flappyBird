@@ -64,7 +64,7 @@ namespace FlappyBird
 
         public void Jump()
         {
-            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.015f;
+            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.01f;
         }
 
         public void JumpHandler()
@@ -84,8 +84,8 @@ namespace FlappyBird
         {
             for (int i = 0; i < yCoordinates.Length; i++)
             {
-                yJumpCoordinates[i] -= 0.004f;
-                yCoordinates[i] -= 0.004f;
+                yJumpCoordinates[i] -= 0.0015f;
+                yCoordinates[i] -= 0.0015f;
             }
 
             if (yCoordinates[2] < -1.0f) gameFinish = true;
