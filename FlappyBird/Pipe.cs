@@ -83,7 +83,7 @@ namespace FlappyBird
 
             for (int i = 0; i < xCoordinates.Length; i++)
             {
-                xCoordinates[i] -= 0.0001f;
+                xCoordinates[i] -= 0.004f;
             }
         }
 

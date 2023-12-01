@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 
@@ -44,7 +45,7 @@ namespace FlappyBird
 
             frameDelay++;
 
-            if (frameDelay > 500 && startGame)
+            if (frameDelay > 20 && startGame)
             {
                 frameDelay = 0;
                 choosenAnimationFrameNumber++;
@@ -54,18 +55,21 @@ namespace FlappyBird
             if (startGame)
             {
                 if (yJumpCoordinates[0] > yCoordinates[0]) Jump();
-                else Fall();
+                else
+                {
+                    Fall();
+                }
             }
         }
 
         public void Jump()
         {
-            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.0005f;
+            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.015f;
         }
 
         public void JumpHandler()
         {
-            for (int i = 0; i < yJumpCoordinates.Length; i++) yJumpCoordinates[i] += 0.25f;
+            for (int i = 0; i < yJumpCoordinates.Length; i++) yJumpCoordinates[i] += 0.3f;
 
             if (yJumpCoordinates[0] > 1)
             {
@@ -78,10 +82,10 @@ namespace FlappyBird
 
         public void Fall()
         {
-            for (int i = 0; i < yJumpCoordinates.Length; i++)
+            for (int i = 0; i < yCoordinates.Length; i++)
             {
-                yJumpCoordinates[i] -= 0.00012f;
-                yCoordinates[i] -= 0.00012f;
+                yJumpCoordinates[i] -= 0.004f;
+                yCoordinates[i] -= 0.004f;
             }
 
             if (yCoordinates[2] < -1.0f) gameFinish = true;
