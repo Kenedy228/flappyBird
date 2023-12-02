@@ -113,4 +113,5 @@ namespace FlappyBird
             yCoordinatesDown[1] = y + 0.5f;
         }
     }
+
 }

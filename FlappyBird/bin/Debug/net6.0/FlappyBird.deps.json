@@ -10,6 +10,7 @@
         "dependencies": {
           "OpenTK": "4.8.1",
           "OpenTK.Graphics": "4.8.1",
+          "StbImageSharp": "2.27.13",
           "System.Drawing.Common": "8.0.0"
         },
         "runtime": {
@@ -176,6 +177,14 @@
           }
         }
       },
+      "StbImageSharp/2.27.13": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.27.13.0",
+            "fileVersion": "2.27.13.0"
+          }
+        }
+      },
       "System.Drawing.Common/8.0.0": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "8.0.0"
@@ -279,6 +288,13 @@
       "sha512": "sha512-6cRO1Vm8qUdp4d2HU+aLW0h1IoJddJXkYDnkk0225T2a22m5qixZ5D6p56KL29z8RXnqk4aWlHA9yhKfZzkOVg==",
       "path": "opentk.windowing.graphicslibraryframework/4.8.1",
       "hashPath": "opentk.windowing.graphicslibraryframework.4.8.1.nupkg.sha512"
+    },
+    "StbImageSharp/2.27.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tHnP2RHgFzWbOS96UqvRO/LYU1WmpMT1bKiig45we+rpaXacBr11Fq2IBF+MqlgyLyNXxRz18E66qr4R9YlSbg==",
+      "path": "stbimagesharp/2.27.13",
+      "hashPath": "stbimagesharp.2.27.13.nupkg.sha512"
     },
     "System.Drawing.Common/8.0.0": {
       "type": "package",

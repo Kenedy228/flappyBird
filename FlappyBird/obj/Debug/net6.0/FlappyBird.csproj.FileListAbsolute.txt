@@ -92,3 +92,5 @@ C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\menu.png
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\restart.png
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.sourcelink.json
+C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\StbImageSharp.dll
+C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png

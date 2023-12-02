@@ -45,7 +45,7 @@ namespace FlappyBird
 
             frameDelay++;
 
-            if (frameDelay > 20 && startGame)
+            if (frameDelay > 30 && startGame)
             {
                 frameDelay = 0;
                 choosenAnimationFrameNumber++;

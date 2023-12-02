@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UYqyWYGijvRYNW3jx3dfHlb78wL3WuMwj3viZniM9wt2IY5xguYdeR/hSbpXXs/xQ40eMjEo03ltvCYr12gplw==",
+  "dgSpecHash": "MLvXMNBqh2LAMLQBZMwNDk8mBnkx/AcoBPArFZxNnoTySH4kOHXnb54EVa65M1UClgjn09lN8wCSZbvRWzPbrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.common\\4.8.1\\opentk.windowing.common.4.8.1.nupkg.sha512",
     "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.desktop\\4.8.1\\opentk.windowing.desktop.4.8.1.nupkg.sha512",
     "C:\\Users\\Zhura\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.8.1\\opentk.windowing.graphicslibraryframework.4.8.1.nupkg.sha512",
+    "C:\\Users\\Zhura\\.nuget\\packages\\stbimagesharp\\2.27.13\\stbimagesharp.2.27.13.nupkg.sha512",
     "C:\\Users\\Zhura\\.nuget\\packages\\system.drawing.common\\8.0.0\\system.drawing.common.8.0.0.nupkg.sha512",
     "C:\\Users\\Zhura\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
