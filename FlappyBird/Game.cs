@@ -5,9 +5,6 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using System.Diagnostics;
-using OpenTK.Windowing.Common.Input;
-using StbImageSharp;
-
 
 namespace FlappyBird
 {
@@ -63,7 +60,6 @@ namespace FlappyBird
             backId = GameTextures.LoadTexture("Textures/backoption.png");
             menuId = GameTextures.LoadTexture("Textures/menu.png");
             restartId = GameTextures.LoadTexture("Textures/restart.png");
-
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
@@ -129,25 +125,19 @@ namespace FlappyBird
             base.OnUnload();
         }
 
+        //сделать меню после проигрыша
+        //сделать двигающийся фон
+
+        //0 - меню
+        //1 - настройки
+        //2 - начало игры
+        //3 - проигрыш
+        //-1 - выход
+
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             base.OnRenderFrame(args);
 
-            double deltaTime = stopwatch.Elapsed.TotalSeconds;
-            elapsedTime += deltaTime;
-
-            if (elapsedTime >= 1.0 / targetFPS)
-            {
-                Render();
-                SwapBuffers();
-                elapsedTime = 0;
-            }
-
-            Thread.Sleep(1);
-        }
-
-        public void Render()
-        {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             background.DrawBackground(backgroundId);
@@ -207,7 +197,8 @@ namespace FlappyBird
                     break;
             }
 
-            GL.Flush();
+            SwapBuffers();
+
         }
 
         protected void Clear()

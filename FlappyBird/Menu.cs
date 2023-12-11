@@ -2,7 +2,6 @@
 using OpenTK.Mathematics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Windowing.Common;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace FlappyBird
 {

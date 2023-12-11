@@ -92,5 +92,179 @@ C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\menu.png
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\restart.png
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.sourcelink.json
-C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\StbImageSharp.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\background.jpeg
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\backoption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\bluebird.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\bluebirdcoloroption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\exitbutton.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\greenpipeoption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\menu.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\numbers.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\pipe-green.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\pipe-red.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\playbutton.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\redbird.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\redbirdcoloroption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\redpipeoption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\restart.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\settingsbutton.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\yellowbird.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\yellowbirdcoloroption.png
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\FlappyBird.exe
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\FlappyBird.deps.json
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\FlappyBird.runtimeconfig.json
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\FlappyBird.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\FlappyBird.pdb
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Audio.OpenAL.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Compute.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Core.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Graphics.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Input.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Mathematics.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Common.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Desktop.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.GraphicsLibraryFramework.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw-wayland.so.3.3
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw.so.3.3
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\osx-arm64\native\libglfw.3.dylib
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\osx-x64\native\libglfw.3.dylib
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\win-x64\native\glfw3.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\runtimes\win-x86\native\glfw3.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.AssemblyReference.cache
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfoInputs.cache
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfo.cs
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CoreCompileInputs.cache
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CopyComplete
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\refint\FlappyBird.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.pdb
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\FlappyBird.genruntimeconfig.cache
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\obj\Debug\net6.0\ref\FlappyBird.dll
+C:\Users\Stepan\Downloads\flappyBird-main (3)\flappyBird-main\FlappyBird\bin\Debug\net6.0\Textures\icon.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\background.jpeg
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\backoption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebird.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebirdcoloroption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\exitbutton.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\greenpipeoption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\menu.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\numbers.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\pipe-green.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\pipe-red.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\playbutton.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbird.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbirdcoloroption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redpipeoption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\restart.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\settingsbutton.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\yellowbird.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\yellowbirdcoloroption.png
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.exe
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.deps.json
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.runtimeconfig.json
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.pdb
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Audio.OpenAL.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Compute.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Core.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Graphics.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Input.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Mathematics.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Common.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Desktop.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.GraphicsLibraryFramework.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw-wayland.so.3.3
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw.so.3.3
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\osx-arm64\native\libglfw.3.dylib
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\osx-x64\native\libglfw.3.dylib
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win-x64\native\glfw3.dll
+D:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win-x86\native\glfw3.dll
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.AssemblyReference.cache
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.GeneratedMSBuildEditorConfig.editorconfig
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfoInputs.cache
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfo.cs
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CoreCompileInputs.cache
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CopyComplete
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.dll
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\refint\FlappyBird.dll
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.pdb
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.genruntimeconfig.cache
+D:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\ref\FlappyBird.dll
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\backoption.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebird.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebirdcoloroption.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\exitbutton.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\greenpipeoption.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\menu.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\pipe-red.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\playbutton.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbird.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbirdcoloroption.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redpipeoption.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\restart.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\settingsbutton.png
+H:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\yellowbirdcoloroption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\background.jpeg
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\backoption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebird.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\bluebirdcoloroption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\exitbutton.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\greenpipeoption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\menu.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\numbers.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\pipe-green.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\pipe-red.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\playbutton.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbird.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redbirdcoloroption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\redpipeoption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\restart.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\settingsbutton.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\yellowbird.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\yellowbirdcoloroption.png
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.exe
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.deps.json
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.runtimeconfig.json
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\FlappyBird.pdb
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Audio.OpenAL.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Compute.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Core.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Graphics.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Input.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Mathematics.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Common.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.Desktop.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\OpenTK.Windowing.GraphicsLibraryFramework.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\System.Drawing.Common.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw-wayland.so.3.3
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\linux-x64\native\libglfw.so.3.3
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\osx-arm64\native\libglfw.3.dylib
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\osx-x64\native\libglfw.3.dylib
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win-x64\native\glfw3.dll
+G:\Курсовая\FlappyBird\FlappyBird\bin\Debug\net6.0\runtimes\win-x86\native\glfw3.dll
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.AssemblyReference.cache
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.GeneratedMSBuildEditorConfig.editorconfig
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfoInputs.cache
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.AssemblyInfo.cs
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CoreCompileInputs.cache
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.csproj.CopyComplete
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.dll
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\refint\FlappyBird.dll
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.pdb
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.genruntimeconfig.cache
+G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\ref\FlappyBird.dll
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png
+C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\StbImageSharp.dll

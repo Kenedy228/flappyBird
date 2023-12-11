@@ -1,10 +1,8 @@
 ﻿using System;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.Common;
-using System.Text;
-using OpenTK.Windowing.Common.Input;
-using StbImageSharp;
 using System.Drawing;
+using OpenTK.Windowing.Common.Input;
 
 namespace FlappyBird
 {
@@ -16,7 +14,10 @@ namespace FlappyBird
 
             OpenTK.Windowing.Common.Input.Image icon = new OpenTK.Windowing.Common.Input.Image(image.Width, image.Height, GetPixels(image));
 
-            GameWindowSettings gSettings = new GameWindowSettings();
+            GameWindowSettings gSettings = new GameWindowSettings() 
+            { 
+                UpdateFrequency = 60.0,
+            };
             NativeWindowSettings nSettings = new NativeWindowSettings()
             {
                 Title = "Flappy Bird",

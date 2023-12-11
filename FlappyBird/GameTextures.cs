@@ -16,7 +16,7 @@ namespace FlappyBird
 
             int id = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2D, id);
-
+  
             Bitmap bmp = new Bitmap(path);
             BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly,
                 System.Drawing.Imaging.PixelFormat.Format32bppArgb);

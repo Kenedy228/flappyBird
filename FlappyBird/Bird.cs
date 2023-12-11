@@ -13,7 +13,7 @@ namespace FlappyBird
         public bool gameFinish = false;
 
         private int rows = 1,
-            columns = 3, 
+            columns = 3,
             choosenAnimationFrameCount = 3,
             choosenAnimationFrameNumber = 0,
             choosenAnimationRowNumber = 0,
@@ -45,13 +45,13 @@ namespace FlappyBird
 
             frameDelay++;
 
-            if (frameDelay > 30 && startGame)
+            if (frameDelay > 10 && startGame)
             {
                 frameDelay = 0;
                 choosenAnimationFrameNumber++;
                 choosenAnimationFrameNumber %= choosenAnimationFrameCount;
             }
-            
+
             if (startGame)
             {
                 if (yJumpCoordinates[0] > yCoordinates[0]) Jump();
@@ -64,7 +64,7 @@ namespace FlappyBird
 
         public void Jump()
         {
-            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.01f;
+            for (int i = 0; i < yCoordinates.Length; i++) yCoordinates[i] += 0.05f;
         }
 
         public void JumpHandler()
@@ -84,8 +84,8 @@ namespace FlappyBird
         {
             for (int i = 0; i < yCoordinates.Length; i++)
             {
-                yJumpCoordinates[i] -= 0.0015f;
-                yCoordinates[i] -= 0.0015f;
+                yJumpCoordinates[i] -= 0.01f;
+                yCoordinates[i] -= 0.01f;
             }
 
             if (yCoordinates[2] < -1.0f) gameFinish = true;

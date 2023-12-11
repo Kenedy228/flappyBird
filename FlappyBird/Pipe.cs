@@ -8,7 +8,7 @@ namespace FlappyBird
         private Random rnd = new Random();
 
         public float[] xCoordinates;
-        public float[] yCoordinatesUp = new float[] {-10f, -10f, -1f, -1f};
+        public float[] yCoordinatesUp = new float[] { -10f, -10f, -1f, -1f };
         public float[] yCoordinatesDown = new float[] { 10f, 10f, 1f, 1f };
 
         private bool flag = false;
@@ -65,13 +65,15 @@ namespace FlappyBird
                         {
                             gameFinish = true;
                         }
-                    } else if (birdX[0] + distance > xCoordinates[0] && birdX[0] + distance < xCoordinates[1] && birdX[1] - distance > xCoordinates[1])
+                    }
+                    else if (birdX[0] + distance > xCoordinates[0] && birdX[0] + distance < xCoordinates[1] && birdX[1] - distance > xCoordinates[1])
                     {
                         if (birdY[0] - distance > yCoordinatesDown[0] || birdY[2] + distance < yCoordinatesUp[0])
                         {
                             gameFinish = true;
                         }
-                    } else if (birdX[1] - distance > xCoordinates[0] && birdX[1] - distance < xCoordinates[1] && birdX[0] + distance < xCoordinates[0])
+                    }
+                    else if (birdX[1] - distance > xCoordinates[0] && birdX[1] - distance < xCoordinates[1] && birdX[0] + distance < xCoordinates[0])
                     {
                         if (birdY[0] - distance > yCoordinatesDown[0] || birdY[2] + distance < yCoordinatesUp[0])
                         {
@@ -83,7 +85,7 @@ namespace FlappyBird
 
             for (int i = 0; i < xCoordinates.Length; i++)
             {
-                xCoordinates[i] -= 0.0015f;
+                xCoordinates[i] -= 0.01f;
             }
         }
 
@@ -113,5 +115,4 @@ namespace FlappyBird
             yCoordinatesDown[1] = y + 0.5f;
         }
     }
-
 }
