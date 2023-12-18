@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Mathematics;
 
 namespace FlappyBird
 {
-    internal class Bird : Object
+    internal class Bird : TextureDrawing
     {
         public float[] xCoordinates = new float[] { -0.05f, 0.05f, 0.05f, -0.05f };
         public float[] yCoordinates = new float[] { 0.7f, 0.7f, 0.55f, 0.55f };

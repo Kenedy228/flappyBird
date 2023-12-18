@@ -1,9 +1,8 @@
 ﻿using System;
-using OpenTK.Graphics.OpenGL;
 
 namespace FlappyBird
 {
-    internal class Pipe : Object
+    internal class Pipe : TextureDrawing
     {
         private Random rnd = new Random();
 
@@ -99,8 +98,7 @@ namespace FlappyBird
 
         public void ChangeY()
         {
-            int number = rnd.Next(-5, 4);
-            float y = (-1 * number) % 10 * -0.1f;
+            float y = rnd.Next(-5, 4) * 0.1f;
 
             yCoordinatesUp[2] = (2f - y) * -1;
             yCoordinatesUp[3] = (2f - y) * -1;

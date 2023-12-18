@@ -267,4 +267,3 @@ G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.pdb
 G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\FlappyBird.genruntimeconfig.cache
 G:\Курсовая\FlappyBird\FlappyBird\obj\Debug\net6.0\ref\FlappyBird.dll
 C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\Textures\icon.png
-C:\Users\Zhura\OneDrive\Рабочий стол\FlappyBird\FlappyBird\bin\Debug\net6.0\StbImageSharp.dll

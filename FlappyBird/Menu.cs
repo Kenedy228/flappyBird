@@ -1,52 +1,50 @@
 ﻿using System;
 using OpenTK.Mathematics;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Windowing.Common;
 
 namespace FlappyBird
 {
-    internal class Menu : Object
+    internal class Menu : TextureDrawing
     {
-        public float[,] playCoordinates = { 
+        private float[,] playCoordinates = { 
             { -0.12f, 0.12f, 0.12f, -0.12f }, 
             { 0.05f, 0.05f, -0.05f, -0.05f } 
         };
 
-        public float[,] settingsCoordinates = { 
+        private float[,] settingsCoordinates = { 
             { -0.12f, 0.12f, 0.12f, -0.12f},
             {-0.07f, -0.07f, -0.17f, -0.17f }
         };
 
-        public float[,] exitCoordinates = { 
+        private float[,] exitCoordinates = { 
             {-0.12f, 0.12f, 0.12f, -0.12f },
             { -0.19f, -0.19f, -0.29f, -0.29f}
         };
 
-        public float[,] birdColorCoordinates =
+        private float[,] birdColorCoordinates =
         {
             {-0.20f, 0.20f, 0.20f, -0.20f },
             { 0.05f, 0.05f, -0.05f, -0.05f }
         };
 
-        public float[,] pipeColorCoordinates =
+        private float[,] pipeColorCoordinates =
         {
             {-0.20f, 0.20f, 0.20f, -0.20f },
             { -0.07f, -0.07f, -0.17f, -0.17f }
         };
 
-        public float[,] backCoordinates =
+        private float[,] backCoordinates =
         {
             {-0.20f, 0.20f, 0.20f, -0.20f },
             { -0.19f, -0.19f, -0.29f, -0.29f }
         };
 
-        public float[,] restartCoordinates =
+        private float[,] restartCoordinates =
         {
             {-0.20f, 0.20f, 0.20f, -0.20f },
             { 0.05f, 0.05f, -0.05f, -0.05f }
         };
 
-        public float[,] menuCoordinates =
+        private float[,] menuCoordinates =
         {
             {-0.20f, 0.20f, 0.20f, -0.20f },
             { -0.07f, -0.07f, -0.17f, -0.17f }
@@ -134,7 +132,5 @@ namespace FlappyBird
                 }
             }
         }
-
-        
     }
 }

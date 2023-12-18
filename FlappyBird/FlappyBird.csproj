@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <None Remove="Game.cs~RF9b23d.TMP" />
+    <None Remove="hg3h4onc.0fw~" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTK" Version="4.8.1" />
-    <PackageReference Include="OpenTK.Graphics" Version="4.8.1" />
+    <PackageReference Include="OpenTK" Version="4.8.2" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
   </ItemGroup>
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj": {}
+    "G:\\Курсовая\\FlappyBird\\FlappyBird\\FlappyBird.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj": {
+    "G:\\Курсовая\\FlappyBird\\FlappyBird\\FlappyBird.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
+        "projectUniqueName": "G:\\Курсовая\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
         "projectName": "FlappyBird",
-        "projectPath": "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
+        "projectPath": "G:\\Курсовая\\FlappyBird\\FlappyBird\\FlappyBird.csproj",
         "packagesPath": "C:\\Users\\Zhura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zhura\\OneDrive\\Рабочий стол\\FlappyBird\\FlappyBird\\obj\\",
+        "outputPath": "G:\\Курсовая\\FlappyBird\\FlappyBird\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -46,11 +46,7 @@
           "dependencies": {
             "OpenTK": {
               "target": "Package",
-              "version": "[4.8.1, )"
-            },
-            "OpenTK.Graphics": {
-              "target": "Package",
-              "version": "[4.8.1, )"
+              "version": "[4.8.2, )"
             },
             "System.Drawing.Common": {
               "target": "Package",

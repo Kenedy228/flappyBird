@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Diagnostics.Metrics;
-using OpenTK.Graphics.OpenGL;
 
 namespace FlappyBird
 {
-    internal class Score : Object
+    internal class Score : TextureDrawing
     {
-        public int counter = 0, n;
-        public List<int> frameNumbers = new List<int> { 0 };
+        private int counter = 0, n;
+        private List<int> frameNumbers = new List<int> { 0 };
 
         private int rows = 1,
             columns = 10,

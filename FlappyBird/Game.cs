@@ -1,39 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
-using System.Diagnostics;
 
 namespace FlappyBird
 {
     class Game : GameWindow
     {
-        int backgroundId, scoreId, playButtonId,
+        private int backgroundId, scoreId, playButtonId,
             settingsButtonId, exitButtonId, backId,
             menuId, restartId;
 
-        List<int> birds = new List<int>();
-        List<int> pipesTextures = new List<int>();
-        List<int> birdColors = new List<int>();
-        List<int> pipeColors = new List<int>();
+        private List<int> birds = new List<int>();
+        private List<int> pipesTextures = new List<int>();
+        private List<int> birdColors = new List<int>();
+        private List<int> pipeColors = new List<int>();
 
 
-        Bird bird = new Bird();
-        Score score = new Score();
-        List<Pipe> pipes = new List<Pipe>{
+        private Bird bird = new Bird();
+        private Score score = new Score();
+        private List<Pipe> pipes = new List<Pipe>{
             new Pipe(new float[] { 1f, 1.2f, 1.2f, 1f }),
             new Pipe(new float[] { 2f, 2.2f, 2.2f, 2f }),
         };
-        Background background = new Background();
-        Menu menu = new Menu();
+        private Background background = new Background();
+        private Menu menu = new Menu();
 
-        Vector2 cursorPosition = new Vector2();
-
-        double targetFPS = 30.0;
-        Stopwatch stopwatch = new Stopwatch();
-        double elapsedTime = 0.0;
+        private Vector2 cursorPosition = new Vector2();
 
         public Game(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeSettings)
             : base(gameWindowSettings, nativeSettings)
@@ -105,12 +101,7 @@ namespace FlappyBird
         {
             base.OnLoad();
 
-            GL.ClearColor(0, 0, 0, 0);
-
             GL.Enable(EnableCap.Texture2D);
-
-            stopwatch.Start();
-
         }
 
         protected override void OnResize(ResizeEventArgs e)
@@ -119,20 +110,6 @@ namespace FlappyBird
 
             GL.Viewport(0, 0, e.Width, e.Height);
         }
-
-        protected override void OnUnload()
-        {
-            base.OnUnload();
-        }
-
-        //сделать меню после проигрыша
-        //сделать двигающийся фон
-
-        //0 - меню
-        //1 - настройки
-        //2 - начало игры
-        //3 - проигрыш
-        //-1 - выход
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
@@ -211,7 +188,6 @@ namespace FlappyBird
                 new Pipe(new float[] { 2f, 2.2f, 2.2f, 2f }),
             };
 
-            background.maskColor = Color4.White;
             menu.restart = false;
         }
     }
