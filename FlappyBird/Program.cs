@@ -24,6 +24,14 @@ namespace FlappyBird
                 Profile = ContextProfile.Compatability,
             };
 
+            // macOS exposes fixed-function drawing through its legacy 2.1 context.
+            // Its 3.2+ core contexts do not support the immediate-mode renderer.
+            if (OperatingSystem.IsMacOS())
+            {
+                nSettings.APIVersion = new Version(2, 1);
+                nSettings.Profile = ContextProfile.Any;
+            }
+
             // Wayland has no API for setting an individual window's icon.
             if (GLFW.GetPlatform() != Platform.Wayland)
                 nSettings.Icon = new WindowIcon(icon);
