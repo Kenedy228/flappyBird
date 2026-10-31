@@ -70,16 +70,16 @@ dotnet build FlappyBird.sln --configuration Release --no-restore
 dotnet test --solution FlappyBird.sln --configuration Release --no-restore
 ```
 
-Пока загрузка ресурсов зависит от рабочего каталога, запускайте из каталога
-приложения:
+Запуск из корня репозитория:
 
 ```sh
-cd FlappyBird
-dotnet run --project FlappyBird.csproj --configuration Release
+dotnet run --project FlappyBird/FlappyBird.csproj --configuration Release --no-restore
 ```
 
-После исправления путей ресурсов проверьте запуск из другого каталога и
-обновите эту инструкцию. Версию SDK согласуйте с `global.json` и CI.
+Иконка и текстуры загружаются относительно `AppContext.BaseDirectory`.
+Проверяйте запуск собранного или опубликованного приложения из другого рабочего
+каталога; для этого передавайте `dotnet` путь к его DLL. Сохраняйте копирование
+каталога `Textures` рядом с DLL. Версию SDK согласуйте с `global.json` и CI.
 
 NuGet-граф зафиксирован в `packages.lock.json` приложения и тестового проекта.
 При намеренном изменении зависимостей выполните `dotnet restore FlappyBird.sln --force-evaluate`,
