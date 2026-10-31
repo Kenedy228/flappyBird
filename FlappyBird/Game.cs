@@ -4,7 +4,6 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL;
-using OpenTK.Mathematics;
 
 namespace FlappyBird
 {
@@ -23,8 +22,6 @@ namespace FlappyBird
         private GameSimulation simulation = new GameSimulation();
         private Background background = new Background();
         private Menu menu = new Menu();
-
-        private Vector2 cursorPosition = new Vector2();
 
         public Game(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeSettings)
             : base(gameWindowSettings, nativeSettings)
@@ -89,17 +86,9 @@ namespace FlappyBird
 
             if (e.Button == MouseButton.Button1)
             {
-                menu.MouseClickHandler(cursorPosition);
+                menu.MouseClickHandler(MousePosition, ClientSize);
             }
 
-        }
-
-        protected override void OnMouseMove(MouseMoveEventArgs e)
-        {
-            base.OnMouseMove(e);
-
-            cursorPosition.X = 2 * e.Position.X / ClientSize.X - 1.0f;
-            cursorPosition.Y = -(2 * e.Position.Y / ClientSize.Y - 1.0f);
         }
 
         protected override void OnLoad()
