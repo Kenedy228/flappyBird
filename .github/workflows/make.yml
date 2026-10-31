@@ -82,28 +82,12 @@ jobs:
       - name: SDK failures propagate and clean preserves tracked files
         run: python .github/__tests__/make_failures.py --make "$env:MAKE_EXE"
 
-      - name: Probe actual make run
+      - name: Graphical make run on macOS
+        if: runner.os == 'macOS'
+        run: swift .github/__tests__/macos_make_run.swift "$env:MAKE_EXE"
+
+      - name: Describe graphics scope
         run: |
-          @'
-          import os, subprocess, sys, tempfile
-          from pathlib import Path
-          with tempfile.TemporaryFile(mode='w+') as log:
-              process = subprocess.Popen([os.environ['MAKE_EXE'], 'run'], stdout=log, stderr=subprocess.STDOUT)
-              try:
-                  result = process.wait(timeout=45)
-                  log.seek(0)
-                  print(log.read())
-                  raise SystemExit(f'make run exited unexpectedly: {result}')
-              except subprocess.TimeoutExpired:
-                  print('make run stayed running; this alone does NOT verify a window, rendering or input.')
-              finally:
-                  if process.poll() is None:
-                      if sys.platform == 'win32':
-                          subprocess.run(['taskkill', '/pid', str(process.pid), '/t', '/f'], check=True)
-                      else:
-                          subprocess.run(['pkill', '-P', str(process.pid)], check=False)
-                          process.terminate()
-                      process.wait(timeout=10)
-                  log.seek(0)
-                  print(log.read())
-          '@ | python -
+          Write-Host 'macOS checks an on-screen native window and normal Quit via actual gmake run.'
+          Write-Host 'Linux hosted runner has no display; Windows hosted driver failed WGL initialization.'
+          Write-Host 'Neither build nor this startup check verifies rendered pixels or gameplay input; see issues #9/#14.'
