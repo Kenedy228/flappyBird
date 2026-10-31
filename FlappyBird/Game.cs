@@ -74,7 +74,7 @@ namespace FlappyBird
         {
             base.OnKeyUp(e);
 
-            if (e.Key == Keys.Space)
+            if (e.Key == Keys.Space && menu.gameStatus == 2)
             {
                 simulation.Bird.JumpHandler();
             }
