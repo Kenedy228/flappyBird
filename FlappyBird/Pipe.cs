@@ -19,7 +19,7 @@ namespace FlappyBird
             ChangeY();
         }
 
-        public void Draw(int textureId, float[] birdX, float[] birdY, Score score, bool startGame)
+        public void Draw(int textureId)
         {
             Bind(textureId);
 
@@ -34,8 +34,6 @@ namespace FlappyBird
                 new float[,] { { xCoordinates[0], xCoordinates[1], xCoordinates[2], xCoordinates[3], },
                     {yCoordinatesDown[0], yCoordinatesDown[1], yCoordinatesDown[2], yCoordinatesDown[3] } }
                 );
-
-            if (startGame) Move(birdX, birdY, score);
         }
 
         public void Move(float[] birdX, float[] birdY, Score score)
