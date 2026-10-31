@@ -18,13 +18,15 @@ namespace FlappyBird
 
         private float frameWidth, frameHeight;
 
+        public int AnimationFrame => choosenAnimationFrameNumber;
+
         public Bird()
         {
             frameWidth = 1.0f / columns;
             frameHeight = 1.0f / rows;
         }
 
-        public void DrawBird(int birdId, bool startGame)
+        public void DrawBird(int birdId)
         {
             base.Bind(birdId);
 
@@ -39,24 +41,21 @@ namespace FlappyBird
                     { yCoordinates[0], yCoordinates[1], yCoordinates[2], yCoordinates[3]}
                 }
             );
+        }
 
+        public void Update()
+        {
             frameDelay++;
 
-            if (frameDelay > 10 && startGame)
+            if (frameDelay > 10)
             {
                 frameDelay = 0;
                 choosenAnimationFrameNumber++;
                 choosenAnimationFrameNumber %= choosenAnimationFrameCount;
             }
 
-            if (startGame)
-            {
-                if (yJumpCoordinates[0] > yCoordinates[0]) Jump();
-                else
-                {
-                    Fall();
-                }
-            }
+            if (yJumpCoordinates[0] > yCoordinates[0]) Jump();
+            else Fall();
         }
 
         public void Jump()
