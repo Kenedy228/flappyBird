@@ -46,7 +46,9 @@ StbImageNext `1.0.0`. Нужен стабильный SDK `10.0.403` или бо
 - Управляйте временем жизни файлов, изображений, окна и графических ресурсов
   явно, включая пути ошибок.
 - Цель — кроссплатформенный запуск; обязательная матрица проверки — Windows,
-  Linux и macOS. Проверяйте версии ОС, архитектуры, OpenGL и нативные зависимости.
+  Linux и macOS. Фиксируйте ОС и фактически проверенные сценарии; конкретные
+  версии ОС в публичных отчётах не указывайте по решению владельца. Архитектуру,
+  OpenGL и нативные зависимости отмечайте, когда они известны, без догадок.
 - Ресурсы должны загружаться независимо от рабочего каталога. Учитывайте
   регистр имён и разделители путей; не используйте персональные абсолютные пути.
 - Выбирайте поддерживаемые стабильные версии .NET и совместимые зависимости.
@@ -67,14 +69,22 @@ StbImageNext `1.0.0`. Нужен стабильный SDK `10.0.403` или бо
 ```sh
 dotnet restore FlappyBird.sln --locked-mode
 dotnet build FlappyBird.sln --configuration Release --no-restore
-dotnet test --solution FlappyBird.sln --configuration Release --no-restore
+dotnet test --solution FlappyBird.sln --configuration Release --no-build --no-restore --minimum-expected-tests 1
 ```
 
 Запуск из корня репозитория:
 
 ```sh
-dotnet run --project FlappyBird/FlappyBird.csproj --configuration Release --no-restore
+dotnet run --project FlappyBird/FlappyBird.csproj --configuration Release --no-build --no-restore
 ```
+
+Те же операции доступны через GNU Make 4+: `make check` восстанавливает пакеты,
+собирает решение и запускает тесты; `make run` собирает и запускает игру.
+`make` выводит справку, `make clean` очищает результаты выбранной конфигурации
+через SDK. По умолчанию используется `Release`; переопределения —
+`CONFIGURATION=Debug` и `DOTNET="путь к dotnet"`. На macOS после установки GNU
+Make через Homebrew используйте `gmake`. Требования и прямые команды описаны
+в [README.md](README.md). В CI (#11) сохраняйте тот же порядок и locked restore.
 
 Иконка и текстуры загружаются относительно `AppContext.BaseDirectory`.
 Проверяйте запуск собранного или опубликованного приложения из другого рабочего

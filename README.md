@@ -1,0 +1,123 @@
+# Flappy Bird
+
+Небольшая настольная игра на C#, .NET 10 и OpenTK: меню, выбор цвета птицы и
+труб, игровой раунд со счётом и перезапуск. Репозиторий проходит подготовку
+к публичной презентации: исправляем существующее поведение, переносимость
+и инструменты разработки. Новые игровые механики в эту работу не входят.
+
+## Требования
+
+- .NET SDK из [global.json](global.json): `10.0.403` или более новый patch
+  в той же feature band `10.0.4xx`. Установки только .NET Runtime недостаточно.
+- Графическая сессия и драйвер с поддержкой OpenGL. Игра открывает настоящее
+  окно; для обычного запуска нужен доступ к дисплею.
+- Для первого восстановления пакетов нужен доступ к NuGet.
+
+| ОС | Подготовка |
+| --- | --- |
+| Windows | Установите [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/windows) и актуальный драйвер видеокарты. |
+| Linux | Установите [.NET SDK и системные зависимости для своего дистрибутива](https://learn.microsoft.com/en-us/dotnet/core/install/linux). Нужны графическая сессия X11 или Wayland и библиотеки OpenGL из пакетов драйвера. |
+| macOS | Установите [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/macos), соответствующий архитектуре компьютера. Используется системная поддержка OpenGL. |
+
+Целевая матрица — Windows, Linux и macOS. Владелец сообщил об успешной ручной
+проверке игры на всех трёх ОС в [PR #17](https://github.com/Kenedy228/flappyBird/pull/17).
+Это проверка конкретных окружений, а не гарантия для любой конфигурации оборудования.
+Архитектуры ручной проверки не уточнялись; отдельная проверка ARM64 не заявляется.
+Автоматические проверки при подготовке Makefile выполнены на Linux; выполнение
+Makefile на Windows и macOS ещё нужно подтвердить отдельно.
+
+Нативные файлы GLFW для трёх целевых ОС поставляются через NuGet-зависимости
+OpenTK; вручную копировать GLFW в проект не требуется. Системные библиотеки
+графики и драйвер устанавливаются средствами ОС. Ограничения переносимости
+отслеживаются в [#9](https://github.com/Kenedy228/flappyBird/issues/9).
+
+На Wayland иконка окна не назначается: используемый GLFW не поддерживает
+эту операцию. Загрузка текстур от этого не зависит.
+
+## Быстрый запуск
+
+Текущие доработки находятся в `stage`; `main` пока не содержит все исправления.
+Из терминала выполните:
+
+```sh
+git clone --branch stage https://github.com/Kenedy228/flappyBird.git
+cd flappyBird
+dotnet restore FlappyBird.sln --locked-mode
+dotnet build FlappyBird.sln --configuration Release --no-restore
+dotnet run --project FlappyBird/FlappyBird.csproj --configuration Release --no-build --no-restore
+```
+
+Ресурсы `FlappyBird/Textures/` копируются при сборке рядом с приложением.
+Загрузчик ищет их относительно DLL, поэтому запуск собранной игры не зависит
+от рабочего каталога. Если переносите результат сборки или публикации,
+сохраняйте весь каталог, включая `Textures/` и зависимости.
+
+Управление: мышь — кнопки меню и настройки; отпускание `Space` — взмах птицы;
+`Esc` — выход. После завершения раунда используйте кнопку перезапуска.
+
+## Команды разработки
+
+Makefile необязателен: все операции доступны напрямую через `dotnet`.
+Нужен **GNU Make 4 или новее**. Рецепты используют команды `dotnet` и `echo`;
+на Windows они рассчитаны на обычный `cmd.exe`, на Linux/macOS — на `sh`.
+Дополнительные Unix-утилиты или WSL не требуются.
+
+| ОС | Установка GNU Make | Команда |
+| --- | --- | --- |
+| Windows | При установленном [Scoop](https://scoop.sh/) выполните `scoop install make`. Это нативный Windows Make. | `make` |
+| Linux | Установите пакет `make` через менеджер пакетов дистрибутива, например `sudo apt install make` в Debian/Ubuntu. | `make` |
+| macOS | При установленном [Homebrew](https://brew.sh/) выполните [`brew install make`](https://formulae.brew.sh/formula/make). | `gmake` |
+
+Все команды выполняются из корня репозитория. Ниже `make` обозначает GNU Make;
+на macOS заменяйте его на `gmake`.
+
+| Цель | Действие | Эквивалентная команда .NET |
+| --- | --- | --- |
+| `make` / `make help` | Список команд без сборки | — |
+| `make restore` | Восстановление по lock-файлам | `dotnet restore FlappyBird.sln --locked-mode` |
+| `make build` | Восстановление, затем сборка | `dotnet build FlappyBird.sln --configuration Release --no-restore` |
+| `make run` | Сборка, затем игра | `dotnet run --project FlappyBird/FlappyBird.csproj --configuration Release --no-build --no-restore` |
+| `make test` | Сборка, затем тесты | `dotnet test --solution FlappyBird.sln --configuration Release --no-build --no-restore --minimum-expected-tests 1` |
+| `make check` | Восстановление, сборка и тесты | Три команды `restore`, `build`, `test` выше по порядку |
+| `make clean` | Очистка результатов выбранной конфигурации | `dotnet clean FlappyBird.sln --configuration Release` |
+
+При прямом вызове `dotnet` соблюдайте тот же порядок: для `build` сначала
+`restore`, для `test` и `run` — `restore` и `build`. Ошибка любого этапа
+останавливает `make check`, в том числе при `make -j check`.
+
+Конфигурация по умолчанию — `Release`. Для отладки:
+
+```sh
+make check CONFIGURATION=Debug
+make run CONFIGURATION=Debug
+make clean CONFIGURATION=Debug
+```
+
+Если SDK не находится в `PATH`, передайте путь к исполняемому файлу:
+`make check DOTNET="/path with spaces/dotnet"` или
+`make check DOTNET="C:/Program Files/dotnet/dotnet.exe"`.
+`clean` очищает результаты сборки выбранной конфигурации через .NET SDK;
+он не удаляет исходники, текстуры и настройки IDE.
+
+## Проверки и устройство
+
+Регрессионные тесты в `FlappyBird.Tests/__tests__/` проверяют декодирование PNG
+и JPEG, порядок каналов RGBA, освобождение файлов, обработку ошибок и загрузку
+из другого рабочего каталога. Они не создают графический контекст. Для тестов
+используется Microsoft.Testing.Platform, выбранный в `global.json`; параметр
+`--minimum-expected-tests 1` не позволяет считать отсутствие тестов успехом.
+
+Оконный запуск, отрисовка и управление проверяются отдельно в графической сессии.
+CI ещё не настроен — [#11](https://github.com/Kenedy228/flappyBird/issues/11).
+Известны зависимость физики от FPS ([#2](https://github.com/Kenedy228/flappyBird/issues/2))
+и пропуски начисления очков ([#4](https://github.com/Kenedy228/flappyBird/issues/4));
+остальные исправления отслеживаются в [issues](https://github.com/Kenedy228/flappyBird/issues).
+
+- `FlappyBird/Program.cs` — точка входа и окно; `Game.cs` — события и состояния.
+- `Bird.cs`, `Pipe.cs`, `Score.cs` — птица, препятствия и счёт.
+- `Menu.cs`, `Background.cs`, `TextureDrawing.cs` — меню и отрисовка.
+- `GameTextures.cs`, `Textures/` — загрузка и файлы изображений.
+- [AGENTS.md](AGENTS.md) — границы работ, инженерные правила и порядок проверки.
+
+Зависимости зафиксированы в `packages.lock.json` обоих проектов.
+Лицензионные условия кода и графических ресурсов пока не оформлены в репозитории.
