@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main, stage]
   push:
-    branches: ['chores/14-verify-native-make']
+    branches: [main, stage, 'chores/**']
   workflow_dispatch:
 
 permissions:
@@ -77,10 +77,10 @@ jobs:
         run: '& $env:MAKE_EXE build'
 
       - name: Check
-        run: '& $env:MAKE_EXE check'
+        run: '& $env:MAKE_EXE --jobs=4 check'
 
-      - name: Clean
-        run: '& $env:MAKE_EXE clean'
+      - name: SDK failures propagate and clean preserves tracked files
+        run: python .github/__tests__/make_failures.py --make "$env:MAKE_EXE"
 
       - name: Probe actual make run
         run: |
