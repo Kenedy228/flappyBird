@@ -30,11 +30,12 @@
 - `Bird.cs`, `Pipe.cs`, `Score.cs` — поведение птицы, препятствий и счёта.
 - `Menu.cs`, `Background.cs`, `TextureDrawing.cs` — меню и отрисовка.
 - `GameTextures.cs`, `Textures/` — загрузка изображений и ресурсы.
+- `FlappyBird.Tests/__tests__/` — регрессионные проверки загрузчика изображений.
 
 Текущий стек — C# и .NET 10 LTS (`net10.0`), OpenTK `4.9.4` и
-System.Drawing.Common `10.0.14`. Нужен стабильный SDK `10.0.403` или более новый
-patch в той же feature band `10.0.4xx`, согласно `global.json`. Нативный запуск
-на Linux/macOS пока блокирует System.Drawing.Common; его замена относится к #9.
+StbImageNext `1.0.0`. Нужен стабильный SDK `10.0.403` или более новый patch в той
+же feature band `10.0.4xx`, согласно `global.json`. Проверка оконного OpenGL
+и игровых сценариев на Windows/Linux/macOS остаётся частью #9.
 
 ## Качество и переносимость
 
@@ -50,8 +51,9 @@ patch в той же feature band `10.0.4xx`, согласно `global.json`. Н
   регистр имён и разделители путей; не используйте персональные абсолютные пути.
 - Выбирайте поддерживаемые стабильные версии .NET и совместимые зависимости.
   Совпадение major-номеров само по себе не доказывает совместимость.
-- Избегайте Windows-зависимых API в общих путях выполнения. Простое обновление
-  System.Drawing.Common не устраняет его платформенные ограничения.
+- Избегайте Windows-зависимых API в общих путях выполнения. Иконка и текстуры
+  используют единый `GameTextures.LoadImage`: RGBA без premultiplied alpha,
+  строки сверху вниз. Сохраняйте этот контракт при изменении декодирования.
 - Применяйте общие инженерные правила Wiki в соответствующей области;
   требования к веб-приложениям не переносите автоматически на C#/OpenTK.
 
@@ -65,6 +67,7 @@ patch в той же feature band `10.0.4xx`, согласно `global.json`. Н
 ```sh
 dotnet restore FlappyBird.sln --locked-mode
 dotnet build FlappyBird.sln --configuration Release --no-restore
+dotnet test --solution FlappyBird.sln --configuration Release --no-restore
 ```
 
 Пока загрузка ресурсов зависит от рабочего каталога, запускайте из каталога
@@ -78,8 +81,8 @@ dotnet run --project FlappyBird.csproj --configuration Release
 После исправления путей ресурсов проверьте запуск из другого каталога и
 обновите эту инструкцию. Версию SDK согласуйте с `global.json` и CI.
 
-NuGet-граф зафиксирован в `FlappyBird/packages.lock.json`. При намеренном
-изменении зависимостей выполните `dotnet restore FlappyBird.sln --force-evaluate`,
+NuGet-граф зафиксирован в `packages.lock.json` приложения и тестового проекта.
+При намеренном изменении зависимостей выполните `dotnet restore FlappyBird.sln --force-evaluate`,
 проверьте изменения lock-файла и повторите restore с `--locked-mode`.
 Не редактируйте lock-файл вручную. Проверяйте прямые и транзитивные зависимости:
 
@@ -89,8 +92,9 @@ dotnet list FlappyBird.sln package --deprecated --include-transitive
 dotnet list FlappyBird.sln package --vulnerable --include-transitive
 ```
 
-- При создании этого файла тестового проекта и CI workflow нет. Не считайте
-  успешное выполнение команды без найденных тестов проверкой поведения.
+- Тесты используют xUnit и Microsoft.Testing.Platform, выбранный в `global.json`.
+  Они проверяют загрузчик без графического контекста. CI workflow пока нет (#11).
+  Не считайте успешную команду без найденных тестов проверкой поведения.
 - Для исправлений добавляйте содержательные регрессионные тесты там, где это
   технически возможно. Вызывайте реальный C# код; не копируйте его логику в тест.
 - Проверяйте результат и инварианты: столкновения, счёт, переходы состояний,
