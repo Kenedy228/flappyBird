@@ -86,6 +86,15 @@ jobs:
         if: runner.os == 'macOS'
         run: swift .github/__tests__/macos_make_run.swift "$env:MAKE_EXE"
 
+      - name: Diagnose failed macOS context selection
+        if: failure() && runner.os == 'macOS'
+        run: |
+          $probe = Join-Path $env:RUNNER_TEMP 'flappybird-gl-diagnostics'
+          clang -Wno-deprecated-declarations .github/__tests__/macos_gl_diagnostics.c -framework OpenGL -o $probe
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $probe
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Describe graphics scope
         if: always()
         run: |
