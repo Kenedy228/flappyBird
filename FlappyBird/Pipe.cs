@@ -49,7 +49,7 @@ namespace FlappyBird
 
             if (!flag)
             {
-                if (birdX[0] > xCoordinates[1] && yCoordinatesUp[0] < birdY[2] && yCoordinatesDown[0] > birdY[0])
+                if (birdX[0] > xCoordinates[1] && !gameFinish)
                 {
                     flag = true;
                     score.IncrementCounter();
