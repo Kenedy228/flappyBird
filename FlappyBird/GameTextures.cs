@@ -9,6 +9,7 @@ namespace FlappyBird
     {
         public static Image LoadImage(string path)
         {
+            path = Path.Combine(AppContext.BaseDirectory, path);
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException($"Загружаемый файл не найден по пути {path}");

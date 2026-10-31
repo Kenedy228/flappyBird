@@ -3,6 +3,7 @@ using Xunit;
 
 namespace FlappyBird.Tests;
 
+[Collection("Working directory")]
 public sealed class GameTexturesTests : IDisposable
 {
     private readonly string path = Path.Combine(Path.GetTempPath(), $"flappy-image-{Guid.NewGuid():N}");
@@ -60,5 +61,49 @@ public sealed class GameTexturesTests : IDisposable
         Assert.Throws<FileNotFoundException>(() => GameTextures.LoadImage(path));
     }
 
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public void LoadImage_UsesApplicationDirectoryRegardlessOfWorkingDirectory(bool decoy)
+    {
+        var originalDirectory = Environment.CurrentDirectory;
+        var resourceDirectory = $"flappy-resource-{Guid.NewGuid():N}";
+        var applicationDirectory = Path.Combine(AppContext.BaseDirectory, resourceDirectory);
+        var otherDirectory = Path.Combine(Path.GetTempPath(), $"flappy-cwd-{Guid.NewGuid():N}");
+        var relativePath = Path.Combine(resourceDirectory, "image.png");
+        try
+        {
+            Directory.CreateDirectory(applicationDirectory);
+            File.WriteAllBytes(Path.Combine(applicationDirectory, "image.png"), Png);
+            Directory.CreateDirectory(otherDirectory);
+            if (decoy)
+            {
+                Directory.CreateDirectory(Path.Combine(otherDirectory, resourceDirectory));
+                File.WriteAllBytes(Path.Combine(otherDirectory, relativePath), Jpeg);
+            }
+            Environment.CurrentDirectory = otherDirectory;
+            var expectedDirectory = Environment.CurrentDirectory;
+
+            var image = GameTextures.LoadImage(relativePath);
+
+            Assert.Equal(2, image.Width);
+            Assert.Equal(2, image.Height);
+            Assert.Equal<byte>([
+                255, 0, 0, 255, 0, 255, 0, 0,
+                0, 0, 255, 128, 255, 255, 255, 64
+            ], image.Data);
+            Assert.Equal(expectedDirectory, Environment.CurrentDirectory);
+        }
+        finally
+        {
+            Environment.CurrentDirectory = originalDirectory;
+            if (Directory.Exists(applicationDirectory)) Directory.Delete(applicationDirectory, true);
+            if (Directory.Exists(otherDirectory)) Directory.Delete(otherDirectory, true);
+        }
+    }
+
     public void Dispose() => File.Delete(path);
 }
+
+[CollectionDefinition("Working directory", DisableParallelization = true)]
+public sealed class WorkingDirectoryCollection { }
