@@ -31,9 +31,10 @@
 - `Menu.cs`, `Background.cs`, `TextureDrawing.cs` — меню и отрисовка.
 - `GameTextures.cs`, `Textures/` — загрузка изображений и ресурсы.
 
-Текущий стек — C# и OpenTK. При создании этого файла проект использует
-`net6.0`, OpenTK `4.8.2` и System.Drawing.Common `8.0.0`; это описание исходного
-состояния, а не требование сохранять устаревшие версии.
+Текущий стек — C# и .NET 10 LTS (`net10.0`), OpenTK `4.9.4` и
+System.Drawing.Common `10.0.14`. Нужен стабильный SDK `10.0.403` или более новый
+patch в той же feature band `10.0.4xx`, согласно `global.json`. Нативный запуск
+на Linux/macOS пока блокирует System.Drawing.Common; его замена относится к #9.
 
 ## Качество и переносимость
 
@@ -62,7 +63,7 @@
 Команды восстановления и сборки из корня репозитория:
 
 ```sh
-dotnet restore FlappyBird.sln
+dotnet restore FlappyBird.sln --locked-mode
 dotnet build FlappyBird.sln --configuration Release --no-restore
 ```
 
@@ -75,7 +76,18 @@ dotnet run --project FlappyBird.csproj --configuration Release
 ```
 
 После исправления путей ресурсов проверьте запуск из другого каталога и
-обновите эту инструкцию. Версию SDK согласуйте с текущим проектом и CI.
+обновите эту инструкцию. Версию SDK согласуйте с `global.json` и CI.
+
+NuGet-граф зафиксирован в `FlappyBird/packages.lock.json`. При намеренном
+изменении зависимостей выполните `dotnet restore FlappyBird.sln --force-evaluate`,
+проверьте изменения lock-файла и повторите restore с `--locked-mode`.
+Не редактируйте lock-файл вручную. Проверяйте прямые и транзитивные зависимости:
+
+```sh
+dotnet list FlappyBird.sln package --outdated --include-transitive
+dotnet list FlappyBird.sln package --deprecated --include-transitive
+dotnet list FlappyBird.sln package --vulnerable --include-transitive
+```
 
 - При создании этого файла тестового проекта и CI workflow нет. Не считайте
   успешное выполнение команды без найденных тестов проверкой поведения.
