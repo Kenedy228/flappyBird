@@ -1,4 +1,4 @@
-"""Check Make's error propagation at the real SDK command boundary.
+"""Check SDK error propagation and preservation of files during Make clean.
 
 The shim fails one selected SDK operation and forwards all other operations to
 the installed SDK. A marker distinguishes the intended failure from a bad path
@@ -65,12 +65,16 @@ def main():
     tracked = subprocess.check_output(["git", "ls-files", "-z"]).split(b"\0")
     paths = [Path(os.fsdecode(path)) for path in tracked if path]
     before = {path: hashlib.sha256(path.read_bytes()).digest() for path in paths}
-    # Cleaning must preserve sources, textures, lockfiles and project settings.
-    subprocess.run([args.make, "clean"], check=True, timeout=120)
-    for path, digest in before.items():
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).digest() != digest:
-            raise AssertionError(f"make clean changed a tracked file: {path}")
-    print(f"PASS: make clean preserves all {len(before)} tracked files", flush=True)
+    with tempfile.TemporaryDirectory(prefix=".make-clean-", dir=Path.cwd()) as directory:
+        local = Path(directory) / "local-settings.user"
+        local.write_bytes(b"untracked user settings must survive clean\n")
+        before[local] = hashlib.sha256(local.read_bytes()).digest()
+        # Catch destructive cleanup of either tracked sources or local user files.
+        subprocess.run([args.make, "clean"], check=True, timeout=120)
+        for path, digest in before.items():
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).digest() != digest:
+                raise AssertionError(f"make clean changed a source or user file: {path}")
+    print(f"PASS: make clean preserves {len(paths)} tracked files and local settings", flush=True)
 
 
 if __name__ == "__main__":

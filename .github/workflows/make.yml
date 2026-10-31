@@ -87,7 +87,8 @@ jobs:
         run: swift .github/__tests__/macos_make_run.swift "$env:MAKE_EXE"
 
       - name: Describe graphics scope
+        if: always()
         run: |
-          Write-Host 'macOS checks an on-screen native window and normal Quit via actual gmake run.'
+          Write-Host 'macOS attempts an on-screen native window and normal Quit via actual gmake run; startup errors fail the job.'
           Write-Host 'Linux hosted runner has no display; Windows hosted driver failed WGL initialization.'
           Write-Host 'Neither build nor this startup check verifies rendered pixels or gameplay input; see issues #9/#14.'
