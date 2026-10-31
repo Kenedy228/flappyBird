@@ -98,8 +98,14 @@ namespace FlappyBird
             }
         }
 
-        public void MouseClickHandler(Vector2 cursorPosition)
+        public void MouseClickHandler(Vector2 position, Vector2i clientSize)
         {
+            if (clientSize.X <= 0 || clientSize.Y <= 0) return;
+
+            var cursorPosition = new Vector2(
+                2 * position.X / clientSize.X - 1.0f,
+                1.0f - 2 * position.Y / clientSize.Y);
+
             if (gameStatus == 0)
             {
                 if (IsButton(cursorPosition, playCoordinates)) gameStatus = 2;
