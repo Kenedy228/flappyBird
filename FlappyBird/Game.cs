@@ -4,7 +4,6 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL;
-using OpenTK.Mathematics;
 
 namespace FlappyBird
 {
@@ -20,16 +19,9 @@ namespace FlappyBird
         private List<int> pipeColors = new List<int>();
 
 
-        private Bird bird = new Bird();
-        private Score score = new Score();
-        private List<Pipe> pipes = new List<Pipe>{
-            new Pipe(new float[] { 1f, 1.2f, 1.2f, 1f }),
-            new Pipe(new float[] { 2f, 2.2f, 2.2f, 2f }),
-        };
+        private GameSimulation simulation = new GameSimulation();
         private Background background = new Background();
         private Menu menu = new Menu();
-
-        private Vector2 cursorPosition = new Vector2();
 
         public Game(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeSettings)
             : base(gameWindowSettings, nativeSettings)
@@ -66,15 +58,25 @@ namespace FlappyBird
             {
                 Close();
             }
+
+            if (menu.restart && (menu.gameStatus == 0 || menu.gameStatus == 2)) Clear();
+
+            if (menu.gameStatus == 2)
+            {
+                simulation.Update(args.Time);
+                if (simulation.IsFinished) menu.gameStatus = 3;
+            }
+
+            if (menu.gameStatus == -1) Close();
         }
 
         protected override void OnKeyUp(KeyboardKeyEventArgs e)
         {
             base.OnKeyUp(e);
 
-            if (e.Key == Keys.Space)
+            if (e.Key == Keys.Space && menu.gameStatus == 2)
             {
-                bird.JumpHandler();
+                simulation.Bird.JumpHandler();
             }
         }
 
@@ -84,17 +86,9 @@ namespace FlappyBird
 
             if (e.Button == MouseButton.Button1)
             {
-                menu.MouseClickHandler(cursorPosition);
+                menu.MouseClickHandler(MousePosition, ClientSize);
             }
 
-        }
-
-        protected override void OnMouseMove(MouseMoveEventArgs e)
-        {
-            base.OnMouseMove(e);
-
-            cursorPosition.X = 2 * e.Position.X / ClientSize.X - 1.0f;
-            cursorPosition.Y = -(2 * e.Position.Y / ClientSize.Y - 1.0f);
         }
 
         protected override void OnLoad()
@@ -122,13 +116,12 @@ namespace FlappyBird
             switch (menu.gameStatus)
             {
                 case 0:
-                    if (menu.restart) Clear();
                     menu.DrawMenu(
                         new int[] { playButtonId, settingsButtonId, exitButtonId },
                         new string[] { "play", "settings", "exit" }
                     );
 
-                    bird.DrawBird(birds[menu.birdColorCounter], false);
+                    simulation.Bird.DrawBird(birds[menu.birdColorCounter]);
                     break;
                 case 1:
                     menu.DrawMenu(
@@ -136,41 +129,33 @@ namespace FlappyBird
                         new string[] { "birdColor", "pipeColor", "back" }
                     );
 
-                    bird.DrawBird(birds[menu.birdColorCounter], false);
+                    simulation.Bird.DrawBird(birds[menu.birdColorCounter]);
                     break;
                 case 2:
-                    if (menu.restart) Clear();
-
-                    for (int i = 0; i < pipes.Count; i++)
+                    for (int i = 0; i < simulation.Pipes.Count; i++)
                     {
-                        if (pipes[i].gameFinish == true) menu.gameStatus = 3;
-                        pipes[i].Draw(pipesTextures[menu.pipeColorCounter], bird.xCoordinates, bird.yCoordinates, score, true);
+                        simulation.Pipes[i].Draw(pipesTextures[menu.pipeColorCounter]);
                     }
 
-                    if (bird.gameFinish == true) menu.gameStatus = 3;
-
-                    bird.DrawBird(birds[menu.birdColorCounter], true);
-                    score.DrawScore(scoreId);
+                    simulation.Bird.DrawBird(birds[menu.birdColorCounter]);
+                    simulation.Score.DrawScore(scoreId);
                     break;
                 case 3:
 
-                    bird.DrawBird(birds[menu.birdColorCounter], false);
+                    simulation.Bird.DrawBird(birds[menu.birdColorCounter]);
 
-                    for (int i = 0; i < pipes.Count; i++)
+                    for (int i = 0; i < simulation.Pipes.Count; i++)
                     {
-                        pipes[i].Draw(pipesTextures[menu.pipeColorCounter], bird.xCoordinates, bird.yCoordinates, score, false);
+                        simulation.Pipes[i].Draw(pipesTextures[menu.pipeColorCounter]);
                     }
 
-                    score.DrawScore(scoreId);
+                    simulation.Score.DrawScore(scoreId);
 
                     menu.DrawMenu(
                         new int[] { restartId, menuId },
                         new string[] { "restart", "menu" }
                     );
 
-                    break;
-                case -1:
-                    Close();
                     break;
             }
 
@@ -180,13 +165,7 @@ namespace FlappyBird
 
         protected void Clear()
         {
-            score = new Score();
-            bird = new Bird();
-
-            pipes = new List<Pipe>{
-                new Pipe(new float[] { 1f, 1.2f, 1.2f, 1f }),
-                new Pipe(new float[] { 2f, 2.2f, 2.2f, 2f }),
-            };
+            simulation = new GameSimulation();
 
             menu.restart = false;
         }

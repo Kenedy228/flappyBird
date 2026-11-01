@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, stage]
+  push:
+    branches:
+      - main
+      - stage
+      - 'features/**'
+      - 'bugfixes/**'
+      - 'hotfixes/**'
+      - 'security/**'
+      - 'chores/**'
+      - 'automation/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  check:
+    name: Check (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+
+      - name: Show SDK and check scope
+        run: |
+          dotnet --version
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Write-Host "Platform: $env:RUNNER_OS / $env:RUNNER_ARCH"
+          Write-Host 'Scope: build, regression tests without a graphics context, copied resources, NuGet audit.'
+          Write-Host 'No window, rendering or interactive gameplay smoke test is performed.'
+
+      - name: Restore locked dependencies and audit
+        run: >-
+          dotnet restore FlappyBird.sln --locked-mode
+          -p:NuGetAudit=true -p:NuGetAuditMode=all -p:NuGetAuditLevel=low
+          "-warnaserror:NU1900,NU1901,NU1902,NU1903,NU1904,NU1905"
+
+      - name: Build
+        run: dotnet build FlappyBird.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --solution FlappyBird.sln --configuration Release --no-build --no-restore --minimum-expected-tests 1
+
+      - name: Verify copied resources
+        run: |
+          $project = (Resolve-Path 'FlappyBird').Path
+          $textures = @(Get-ChildItem 'FlappyBird/Textures' -Recurse -File)
+          if ($textures.Count -eq 0) { throw 'No source textures found.' }
+          foreach ($source in $textures) {
+            $relative = [IO.Path]::GetRelativePath($project, $source.FullName)
+            $output = Join-Path 'FlappyBird/bin/Release/net10.0' $relative
+            if (!(Test-Path -LiteralPath $output -PathType Leaf)) {
+              throw "Missing copied resource: $relative"
+            }
+            if ((Get-FileHash -LiteralPath $source.FullName).Hash -ne (Get-FileHash -LiteralPath $output).Hash) {
+              throw "Copied resource differs: $relative"
+            }
+          }
+          Write-Host "Verified $($textures.Count) copied resources."

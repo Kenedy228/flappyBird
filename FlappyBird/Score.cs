@@ -15,6 +15,8 @@ namespace FlappyBird
 
         private float frameWidth, frameHeight;
 
+        public int Value => counter;
+
         public Score()
         {
             frameWidth = 1.0f / columns;

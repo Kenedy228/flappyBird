@@ -1,0 +1,18 @@
+# .NET build and restore outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio caches and per-user settings
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Local agent data and worktrees
+.token-optimizer/
+.worktrees/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
