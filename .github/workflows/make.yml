@@ -86,4 +86,4 @@ jobs:
         if: always()
         run: |
           Write-Host 'Scope: native Make commands, SDK failures and safe clean; no window or gameplay smoke test.'
-          Write-Host 'Windows/macOS graphical acceptance is deferred to the owner for manual verification (issues #9/#14).'
+          Write-Host 'The owner confirmed Windows/macOS manual acceptance; future graphical changes require separate manual verification.'
