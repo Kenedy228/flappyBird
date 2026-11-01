@@ -1,0 +1,89 @@
+name: Native Make
+
+on:
+  pull_request:
+    branches: [main, stage]
+  push:
+    branches: [main, stage, 'chores/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: make-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+  TESTINGPLATFORM_TELEMETRY_OPTOUT: '1'
+
+jobs:
+  make:
+    name: Make (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest, macos-15-intel]
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+
+      - name: Select native GNU Make
+        run: |
+          if ($IsMacOS) {
+            if (!(Get-Command gmake -ErrorAction SilentlyContinue)) {
+              brew install make
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            }
+            $make = (Get-Command gmake -ErrorAction Stop).Source
+          } else {
+            if ($IsWindows -and !(Get-Command make -ErrorAction SilentlyContinue)) {
+              choco install make --yes --no-progress
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            }
+            $make = (Get-Command make -ErrorAction Stop).Source
+          }
+          "MAKE_EXE=$make" >> $env:GITHUB_ENV
+          Write-Host "Platform: $env:RUNNER_OS / $env:RUNNER_ARCH"
+          & $make --version
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Write-Host 'Make targets and actual SDK commands are checked independently of graphical gameplay.'
+
+      - name: Help and default goal
+        run: |
+          & $env:MAKE_EXE
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $env:MAKE_EXE help
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Restore
+        run: '& $env:MAKE_EXE restore'
+
+      - name: Build
+        run: '& $env:MAKE_EXE build'
+
+      - name: Check
+        run: '& $env:MAKE_EXE --jobs=4 check'
+
+      - name: SDK failures propagate and clean preserves tracked files
+        run: python .github/__tests__/make_failures.py --make "$env:MAKE_EXE"
+
+      - name: Describe graphics scope
+        if: always()
+        run: |
+          Write-Host 'Scope: native Make commands, SDK failures and safe clean; no window or gameplay smoke test.'
+          Write-Host 'Windows/macOS graphical acceptance is deferred to the owner for manual verification (issues #9/#14).'

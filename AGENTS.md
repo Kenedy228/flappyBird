@@ -126,7 +126,16 @@ dotnet list FlappyBird.sln package --vulnerable --include-transitive
 - Тесты используют xUnit и Microsoft.Testing.Platform, выбранный в `global.json`.
   Они проверяют загрузчик и симуляцию без графического контекста. CI в
   `.github/workflows/ci.yml` выполняет restore/build/test и проверку скопированных
-  ресурсов на Windows/Linux/macOS; интерактивную игру и нативный Make не запускает.
+  ресурсов на Windows/Linux/macOS; интерактивную игру он не запускает.
+  `.github/workflows/make.yml` отдельно проверяет GNU Make на Windows/Linux x64
+  и macOS ARM64/x64: справку, restore/build, `check --jobs=4`, ошибки SDK и
+  сохранность исходников/локальных файлов после clean. Его Python-проверка
+  повторяется командой `python3 .github/__tests__/make_failures.py` из корня
+  (Windows: `python`, Homebrew Make: добавить `--make gmake`).
+  Оконный smoke не входит в CI. По решению владельца графическая приёмка
+  Windows/macOS отложена: он проверит игру и `make run`/`gmake run` вручную.
+  Не считайте её выполненной по зелёным автоматическим проверкам и не закрывайте
+  #9/#14 до получения результатов. Сценарии и ограничения перечислены в README.
   Строгий NuGet-аудит CI проверяет прямые и транзитивные зависимости и блокирует
   `NU1900`–`NU1905`, включая ошибки получения данных. Команда повторения приведена
   в README; не скрывайте advisories через NoWarn или отключение аудита. Исключения
