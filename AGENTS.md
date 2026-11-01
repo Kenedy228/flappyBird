@@ -27,6 +27,8 @@
 
 - `FlappyBird.sln` — решение; `FlappyBird/FlappyBird.csproj` — приложение.
 - `Program.cs` — запуск и параметры окна; `Game.cs` — события и состояния игры.
+  На macOS сохраняйте legacy-контекст OpenGL 2.1 с `ContextProfile.Any`:
+  immediate-mode отрисовка не работает в доступном там core-профиле 3.2+.
   `OnKeyUp` применяет `Space` только в активном раунде (`gameStatus == 2`);
   нажатия в меню/настройках не должны менять начало следующего раунда.
 - `GameSimulation.cs` — состояние раунда и накопитель шагов по 1/60 секунды;
